@@ -32,11 +32,12 @@ const Calendar = ({ currentMonth }) => {
         const days = [];
 
         for (let i = 0; i < 7; i++) {
-            const formattedDate = format(day, dateFormat);
-            const formattedDates = format(day, "yyyy-MM-dd");
-            const isCurrentMonth = isSameMonth(day, monthStart);
-            const isToday = isSameDay(day, new Date());
-            const dayEvents = events.filter(event => isSameDay(parse(event.date, 'yyyy-MM-dd', new Date()), day));
+            const currentDay = day; // Create a new scope for each day
+            const formattedDate = format(currentDay, dateFormat);
+            const formattedDates = format(currentDay, "yyyy-MM-dd");
+            const isCurrentMonth = isSameMonth(currentDay, monthStart);
+            const isToday = isSameDay(currentDay, new Date());
+            const dayEvents = events.filter(event => isSameDay(parse(event.date, 'yyyy-MM-dd', new Date()), currentDay));
 
             days.push(
                 <div
@@ -65,7 +66,7 @@ const Calendar = ({ currentMonth }) => {
         }
 
         rows.push(
-            <div className="w-full grid grid-cols-7 border border-gray-100" key={day}>
+            <div className="w-full grid grid-cols-7 border border-gray-100" key={format(startDate, "yyyy-MM-dd")}>
                 {days}
             </div>
         );
