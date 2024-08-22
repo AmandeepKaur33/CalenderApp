@@ -20,7 +20,7 @@ const EventForm = () => {
         }
     };
     return (
-        <div className="w-full h-[80vh] bg-blue-400 pt-6 flex flex-col overflow-auto">
+        <div className="w-full h-[80vh] bg-blue-400 pt-6 flex flex-col">
         <form onSubmit={handleSubmit} className='w-full justify-center gap-5 flex flex-col items-center' >
             <div className='flex flex-col gap-1 w-11/12 pl-16'>
                 <label htmlFor="event-title" className='text-xl text-white'>Title:</label>
@@ -29,7 +29,8 @@ const EventForm = () => {
                     id="event-title"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
-                    className='w-11/12 px-2'
+                    className='w-11/12 p-2'
+                    placeholder='Event'
                 />
             </div>
             <div className='flex flex-col gap-1 w-11/12 pl-16'>
