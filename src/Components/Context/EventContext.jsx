@@ -17,6 +17,7 @@ export const EventProvider = ({ children }) => {
     const [eventId, setEventId] = useState(null);
     const [ModalData, setModalData] = useState({ data: ""});
     const [toggleModal, setToggleModal] = useState(false)
+console.log(ModalData,toggleModal);
 
     const addEvent = (event) => {
         setEvents((prevEvents) => [...prevEvents, event]);
